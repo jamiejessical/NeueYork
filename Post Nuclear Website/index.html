@@ -15,6 +15,18 @@
       align-items: center;
     }
 
+    .static-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') repeat;
+    pointer-events: none; /* So you can still click everything underneath */
+    opacity: 0.05; /* Adjust intensity */
+    z-index: 9999;
+    }
+
     h1 {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1vw;
