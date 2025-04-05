@@ -74,7 +74,7 @@
     .img2:hover {
       transform: scale(1.1) rotate(-5deg) translateX(-400px); z-index: 2;
     }
-    
+
     .img3:hover {
       transform: scale(1.1) rotate(2deg) translateX(-150px); z-index: 1;
     }
@@ -110,6 +110,7 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
+      flex-direction: column;
     }
 
     .fullscreen img {
@@ -120,6 +121,30 @@
 
     .fullscreen:active {
       display: none;
+    }
+
+    .fullscreen h1.typewriter {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: rgb(17, 255, 0);
+      font-size: 1.2vw;
+      font-family: 'Courier New', Courier, monospace;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid rgb(17, 255, 0);
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 30ch; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: rgb(17, 255, 0); }
     }
   </style>
 </head>
@@ -132,23 +157,29 @@
         <h1><b>Welcome to Neue York City, Earth’s last remaining “civilized” city.</b> <br>Refugees who manage to escape the outside world are welcome in the city but must navigate its uncanny social culture and submit to the strict laws of the Neue York 23rd Century Council, the governing force that maintains order—at any cost.</h1>
     </div>
   <div class="gallery">
-    <img src="img/POSTER_ABORTION.jpg" class="img1" onclick="openFullscreen(this)" />
-    <img src="img/POSTER_AIR.jpg" class="img2" onclick="openFullscreen(this)" />
-    <img src="img/POSTER_BROADWAY.jpg" class="img3" onclick="openFullscreen(this)" />
-    <img src="img/POSTER_MODIFICATION.jpg" class="img4" onclick="openFullscreen(this)" />
-    <img src="img/POSTER_SUBWAY.jpg" class="img5" onclick="openFullscreen(this)" />
-    <img src="img/POSTER_SURVEILLANCE.jpg" class="img6" onclick="openFullscreen(this)" />
+    <img src="img/POSTER_ABORTION.jpg" class="img1" onclick="openFullscreen(this, 'ABORTION: Reproductive rights are state-owned in Neue York.')" />
+    <img src="img/POSTER_AIR.jpg" class="img2" onclick="openFullscreen(this, 'AIR: Oxygen credits are now tradable commodities.')" />
+    <img src="img/POSTER_BROADWAY.jpg" class="img3" onclick="openFullscreen(this, 'BROADWAY: All art is reviewed by the Ministry of Emotion.')" />
+    <img src="img/POSTER_MODIFICATION.jpg" class="img4" onclick="openFullscreen(this, 'MODIFICATION: Body upgrades are mandated by job class.')" />
+    <img src="img/POSTER_SUBWAY.jpg" class="img5" onclick="openFullscreen(this, 'SUBWAY: Surveillance on public transport is 24/7.')" />
+    <img src="img/POSTER_SURVEILLANCE.jpg" class="img6" onclick="openFullscreen(this, 'SURVEILLANCE: Privacy is outlawed for national security.')" />
   </div>
   <div class="fullscreen" id="fullscreen" onclick="closeFullscreen()">
     <img id="fullscreen-img" src="" alt="Full Image" />
+    <h1 class="typewriter" id="typewriter-text"></h1>
   </div>
 
   <script>
-    function openFullscreen(img) {
+    function openFullscreen(img, text) {
       const fullscreen = document.getElementById('fullscreen');
       const fullscreenImg = document.getElementById('fullscreen-img');
+      const typewriterText = document.getElementById('typewriter-text');
       fullscreenImg.src = img.src;
       fullscreen.style.display = 'flex';
+      typewriterText.style.animation = 'none';
+      typewriterText.offsetHeight; // trigger reflow
+      typewriterText.textContent = text;
+      typewriterText.style.animation = null;
     }
 
     function closeFullscreen() {
@@ -157,3 +188,4 @@
   </script>
 </body>
 </html>
+
