@@ -124,28 +124,18 @@
     }
 
     .fullscreen h1.typewriter {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      color: rgb(17, 255, 0);
-      font-size: 1.2vw;
-      font-family: 'Courier New', Courier, monospace;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid rgb(17, 255, 0);
-      width: 0;
-      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
-    }
+  position: absolute;
+  bottom: 50px;
+  left: -350px;
+  color: rgb(17, 255, 0);
+  font-size: 1.2vw;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  white-space: normal;
+  border: none;
+  width: 30%;
+}
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 30ch; }
-    }
-
-    @keyframes blink {
-      from, to { border-color: transparent; }
-      50% { border-color: rgb(17, 255, 0); }
-    }
   </style>
 </head>
 <body>
@@ -157,12 +147,12 @@
         <h1><b>Welcome to Neue York City, Earth’s last remaining “civilized” city.</b> <br>Refugees who manage to escape the outside world are welcome in the city but must navigate its uncanny social culture and submit to the strict laws of the Neue York 23rd Century Council, the governing force that maintains order—at any cost.</h1>
     </div>
   <div class="gallery">
-    <img src="img/POSTER_ABORTION.jpg" class="img1" onclick="openFullscreen(this, 'ABORTION: Reproductive rights are state-owned in Neue York.')" />
-    <img src="img/POSTER_AIR.jpg" class="img2" onclick="openFullscreen(this, 'AIR: Oxygen credits are now tradable commodities.')" />
-    <img src="img/POSTER_BROADWAY.jpg" class="img3" onclick="openFullscreen(this, 'BROADWAY: All art is reviewed by the Ministry of Emotion.')" />
-    <img src="img/POSTER_MODIFICATION.jpg" class="img4" onclick="openFullscreen(this, 'MODIFICATION: Body upgrades are mandated by job class.')" />
-    <img src="img/POSTER_SUBWAY.jpg" class="img5" onclick="openFullscreen(this, 'SUBWAY: Surveillance on public transport is 24/7.')" />
-    <img src="img/POSTER_SURVEILLANCE.jpg" class="img6" onclick="openFullscreen(this, 'SURVEILLANCE: Privacy is outlawed for national security.')" />
+    <img src="img/POSTER_ABORTION.jpg" class="img1" onclick="openFullscreen(this, 'Reproductive control has reached disturbing extremes, with the post-birth termination of infants becoming a socially accepted practice, all in the name of preventing children from turning out less than satisfactory.')" />
+    <img src="img/POSTER_AIR.jpg" class="img2" onclick="openFullscreen(this, 'Years of pollution buildup have made the air in the city dangerously toxic, turning pure oxygen into a rare and expensive luxury, reserved only for the privileged few.')" />
+    <img src="img/POSTER_BROADWAY.jpg" class="img3" onclick="openFullscreen(this, 'Inspired by Hell\'s Kitchen, a 2024 musical, Heaven\'s Backdoor presents Neue York as the last safe haven, a final sanctuary in a broken world. Refugees from across the globe make their way to the city, lured by the promise of a fresh start and the hope of rebuilding their shattered lives.')" />
+    <img src="img/POSTER_MODIFICATION.jpg" class="img4" onclick="openFullscreen(this, 'Organ and body enhancements become essential not only for survival but also to climb the social hierarchy, as those without modifications struggle to keep up as physical upgrades are the norm.')" />
+    <img src="img/POSTER_SUBWAY.jpg" class="img5" onclick="openFullscreen(this, 'Due to centuries of neglect and inadequate law enforcement since the 21st century, the once famous MTA subway system has become a structurally unsafe, lawless network, rife with crime and biohazards, forcing residents to abandon it completely.')" />
+    <img src="img/POSTER_SURVEILLANCE.jpg" class="img6" onclick="openFullscreen(this, 'Personal freedoms have been eradicated in favor of an all-seeing digital government that tracks and monitors every action, ensuring total control over the lives of its citizens. Privacy is a thing of the past, replaced by constant surveillance and strict compliance to the state.')" />
   </div>
   <div class="fullscreen" id="fullscreen" onclick="closeFullscreen()">
     <img id="fullscreen-img" src="" alt="Full Image" />
@@ -170,17 +160,14 @@
   </div>
 
   <script>
-    function openFullscreen(img, text) {
-      const fullscreen = document.getElementById('fullscreen');
-      const fullscreenImg = document.getElementById('fullscreen-img');
-      const typewriterText = document.getElementById('typewriter-text');
-      fullscreenImg.src = img.src;
-      fullscreen.style.display = 'flex';
-      typewriterText.style.animation = 'none';
-      typewriterText.offsetHeight; // trigger reflow
-      typewriterText.textContent = text;
-      typewriterText.style.animation = null;
-    }
+function openFullscreen(img, text) {
+  const fullscreen = document.getElementById('fullscreen');
+  const fullscreenImg = document.getElementById('fullscreen-img');
+  const typewriterText = document.getElementById('typewriter-text');
+  fullscreenImg.src = img.src;
+  fullscreen.style.display = 'flex';
+  typewriterText.textContent = text;
+}
 
     function closeFullscreen() {
       document.getElementById('fullscreen').style.display = 'none';
@@ -188,4 +175,3 @@
   </script>
 </body>
 </html>
-
